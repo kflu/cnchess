@@ -10,7 +10,6 @@ namespace ChineseChessLib
         protected Game Game;
         public Point Location;
         public bool IsAlive;
-        abstract public void Move(Point target);
         abstract public bool IsValidMove(Point target);
         public Side Side;
     }

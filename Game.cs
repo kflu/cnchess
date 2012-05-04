@@ -9,9 +9,8 @@ namespace ChineseChessLib
     {
         public Board Board;
         public Side[] Sides;
-        public Side Red;
-        public Side Black;
+        public Side Top;
+        public Side Bottom;
         public Piece[] Pieces;
-
     }
 }
