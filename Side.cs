@@ -10,10 +10,11 @@ namespace ChineseChessLib
 {
     class Side
     {
-        SideType side;
+        public SideType side;
         Piece[] pieces;
         Jiang jiang;
         private Game game;
+        public Side Opponent;
 
         public Side(Game game)
         {
@@ -23,6 +24,17 @@ namespace ChineseChessLib
             this.pieces = (from piece in this.game.Pieces where piece.Side == this select piece).ToArray();
             Debug.Assert(pieces.Length == 16);
             this.jiang = (Jiang)(from p in this.pieces where p.GetType() == jiang.GetType() select p).First();
+        }
+
+        public bool PointInAttackRange(Point point)
+        {
+            foreach (var piece in this.pieces)
+            {
+                if (!piece.IsAlive) continue;
+                if (piece.PointInAttackRange(point))
+                    return true;
+            }
+            return false;
         }
         
         public void Move(Piece piece, Point targetLocation) { }

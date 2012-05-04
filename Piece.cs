@@ -12,5 +12,6 @@ namespace ChineseChessLib
         public bool IsAlive;
         abstract public bool IsValidMove(Point target);
         public Side Side;
+        abstract public bool PointInAttackRange(Point point);
     }
 }

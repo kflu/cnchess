@@ -7,7 +7,7 @@ namespace ChineseChessLib
 {
     enum SideType
     {
-        Red = 0,
-        Black = 1,
+        Bottom = 0,
+        Top = 1,
     }
 }
