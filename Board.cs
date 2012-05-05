@@ -34,15 +34,9 @@ namespace ChineseChessLib
         private void InitBoard()
         {
             this.boardTable = new Piece[10,9];
-            this.InitPieces();
         }
 
-        private void InitPieces()
-        {
-            // TODO;
-        }
-
-        private void UpdateBoard()
+        public void UpdateBoard()
         {
             foreach (var piece in this.game.Pieces)
             {
@@ -52,24 +46,7 @@ namespace ChineseChessLib
             }
         }
 
-        public void Move(Piece piece, Point targetLocation)
-        {
-            System.Diagnostics.Debug.Assert(
-                piece.IsValidMove(targetLocation));
-
-            if (this[targetLocation] != null)
-            {
-                this[targetLocation].IsAlive = false;
-            }
-            piece.Location = targetLocation;
-        }
-
-        public bool IsValidMove(Piece piece, Point targetLocation)
-        {
-            return piece.IsValidMove(targetLocation);
-        }
-
-        public Point[] BottomJiuGong = new Point[] {
+        public const Point[] BottomJiuGong = new Point[] {
             new Point(0, 3),
             new Point(0, 4),
             new Point(0, 5),
@@ -80,7 +57,7 @@ namespace ChineseChessLib
             new Point(2, 4),
             new Point(2, 5)};
 
-        public Point[] TopJiuGong = new Point[] {
+        public const Point[] TopJiuGong = new Point[] {
             new Point(7, 3),
             new Point(7, 4),
             new Point(7, 5),
@@ -90,7 +67,5 @@ namespace ChineseChessLib
             new Point(9, 3),
             new Point(9, 4),
             new Point(9, 5)};
-
-
     }
 }

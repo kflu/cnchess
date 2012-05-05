@@ -15,7 +15,7 @@ namespace ChineseChessLib.Pieces
         public override bool IsValidMove(Point target)
         {
             Point[] jiugong = this.Side.side == SideType.Bottom ?
-                this.Game.Board.BottomJiuGong : this.Game.Board.TopJiuGong;
+                Board.BottomJiuGong : Board.TopJiuGong;
             if (!jiugong.Contains(target)) return false;
             if (target.Equals(this.Location)) return false;
 
