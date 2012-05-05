@@ -7,20 +7,10 @@ namespace ChineseChessLib
 {
     class Board
     {
+        public const int NumRows = 10;
+        public const int NumCols = 9;
         Game game;
-        private Piece[,] boardTable = new Piece[10,9];
-
-        public Piece this[int x, int y]
-        {
-            get
-            {
-                return this.boardTable[x, y];
-            }
-            private set
-            {
-                this.boardTable[x, y] = value;
-            }
-        }
+        private Piece[,] boardTable;
 
         public Piece this[Point location]
         {
@@ -37,7 +27,19 @@ namespace ChineseChessLib
         public Board(Game game)
         {
             this.game = game;
+            this.InitBoard();
             this.UpdateBoard();
+        }
+
+        private void InitBoard()
+        {
+            this.boardTable = new Piece[10,9];
+            this.InitPieces();
+        }
+
+        private void InitPieces()
+        {
+            // TODO;
         }
 
         private void UpdateBoard()

@@ -7,10 +7,10 @@ namespace ChineseChessLib.Pieces
 {
     class Jiang : Piece
     {
-        public Jiang(Game game)
-        {
-            this.Game = game;
-        }
+        public const int NumOfPieces = 1;
+        public const Point[] RelativeInitialPositions = new Point[] { new Point(0, 5) };
+
+        public Jiang(Game game, Side side) : base(game, side) { }
 
         public override bool IsValidMove(Point target)
         {
@@ -31,10 +31,12 @@ namespace ChineseChessLib.Pieces
 
         public override bool PointInAttackRange(Point point)
         {
-            Point[] jiugong = this.Side.side == SideType.Bottom ?
-                this.Game.Board.BottomJiuGong : this.Game.Board.TopJiuGong;
-            if (!jiugong.Contains(point)) return false;
-            // TODO
+            throw new NotImplementedException();
+        }
+
+        public override void InitPosition()
+        {
+            this.Location = this.Side.AbsolutePosition(new Point(0, 5));
         }
     }
 }

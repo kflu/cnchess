@@ -10,8 +10,14 @@ namespace ChineseChessLib
         protected Game Game;
         public Point Location;
         public bool IsAlive;
-        abstract public bool IsValidMove(Point target);
         public Side Side;
+        abstract public bool IsValidMove(Point target);
         abstract public bool PointInAttackRange(Point point);
+        
+        public Piece(Game game, Side side)
+        {
+            this.Game = game;
+            this.Side = side;
+        }
     }
 }
