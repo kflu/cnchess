@@ -10,7 +10,7 @@ namespace ChineseChessLib
 {
     class Side
     {
-        public SideType side;
+        public SideType sideType;
         Piece[] pieces;
         Jiang jiang;
         private Game game;
@@ -53,7 +53,7 @@ namespace ChineseChessLib
         /// <returns></returns>
         public Point AbsolutePosition(Point p)
         {
-            if (this.side == SideType.Bottom) return p;
+            if (this.sideType == SideType.Bottom) return p;
             int x = Board.NumRows - p.X - 1;
             int y = Board.NumCols - p.Y - 1;
             return new Point(x, y);

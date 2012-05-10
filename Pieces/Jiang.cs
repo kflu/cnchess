@@ -7,22 +7,21 @@ namespace ChineseChessLib.Pieces
 {
     class Jiang : Piece
     {
-        public const int NumOfPieces = 1;
-        public const Point[] RelativeInitialPositions = new Point[] { new Point(0, 5) };
+        public const Point[] InitialRelativePositions = new Point[] { new Point(0, 4) };
 
         public Jiang(Game game, Side side) : base(game, side) { }
 
         public override bool IsValidMove(Point target)
         {
-            Point[] jiugong = this.Side.side == SideType.Bottom ?
+            Point[] jiugong = this.Side.sideType == SideType.Bottom ?
                 Board.BottomJiuGong : Board.TopJiuGong;
             if (!jiugong.Contains(target)) return false;
-            if (target.Equals(this.Location)) return false;
+            if (target.Equals(this.Position)) return false;
 
             // * can horizontally or vertically move 1 position
             // * the target position must NOT be under attack
-            if (((target.X == this.Location.X && Math.Abs(target.Y - this.Location.Y) == 1)
-                || (target.Y == this.Location.Y && Math.Abs(target.X - this.Location.X) == 1))
+            if (((target.X == this.Position.X && Math.Abs(target.Y - this.Position.Y) == 1)
+                || (target.Y == this.Position.Y && Math.Abs(target.X - this.Position.X) == 1))
                 && !this.Side.Opponent.PointInAttackRange(target))
                 return true;
             //otherwise...
@@ -36,7 +35,7 @@ namespace ChineseChessLib.Pieces
 
         public override void InitPosition()
         {
-            this.Location = this.Side.AbsolutePosition(new Point(0, 5));
+            this.Position = this.Side.AbsolutePosition(new Point(0, 5));
         }
     }
 }

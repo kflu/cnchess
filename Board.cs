@@ -28,7 +28,7 @@ namespace ChineseChessLib
         {
             this.game = game;
             this.InitBoard();
-            this.UpdateBoard();
+            this.UpdatePiecePositionOnBoard();
         }
 
         private void InitBoard()
@@ -36,12 +36,12 @@ namespace ChineseChessLib
             this.boardTable = new Piece[10,9];
         }
 
-        public void UpdateBoard()
+        public void UpdatePiecePositionOnBoard()
         {
             foreach (var piece in this.game.Pieces)
             {
-                int x = piece.Location.X;
-                int y = piece.Location.Y;
+                int x = piece.Position.X;
+                int y = piece.Position.Y;
                 this.boardTable[x,y] = piece;
             }
         }

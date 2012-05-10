@@ -7,6 +7,7 @@ namespace ChineseChessLib.Pieces
 {
     class Xiang : Piece
     {
+        public const Point[] InitialRelativePositions = new Point[] { new Point(0, 2), new Point(0, 6) };
         public Xiang(Game game, Side side) : base(game, side) { }
 
         public override bool IsValidMove(Point target)

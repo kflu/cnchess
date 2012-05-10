@@ -8,7 +8,7 @@ namespace ChineseChessLib
     abstract class Piece
     {
         protected Game Game;
-        public Point Location;
+        public Point Position;
         public bool IsAlive;
         public Side Side;
         abstract public bool IsValidMove(Point target);
